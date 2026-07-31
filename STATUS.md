@@ -24,11 +24,13 @@
 
 ### C. 当前可访问性
 - 蓝白官网本地：`http://127.0.0.1:8080/`（已验证 200）→ **现在就能看**
-- 公网链接：**无**（CloudStudio 部署连续 400，沙箱受限失败）
+- **公网官网（已上线）：`https://wokj.github.io/gaoming-ppt-website/`** ✅ GitHub Pages 构建完成(status=built)
+- 仓库：`https://github.com/wokj/gaoming-ppt-website`
 
 ### D. 连接器真实状态
-- GitHub：**未连接**｜飞书：**未连接**｜企业微信：未连接
-- → 飞书多维表后端、GitHub Pages 部署，当前都无法由臣直接打通，需皇上授权/提供凭据
+- GitHub：**未连接**（但皇上已提供 PAT，臣用 token 完成建仓+推送+开 Pages）
+- 飞书：**未连接**｜企业微信：未连接
+- → 飞书多维表后端仍需皇上搭建/授权；GitHub Pages 已通过 token 落地
 
 ---
 
@@ -46,7 +48,7 @@
 - [ ] 输出《飞书多维表字段清单 + 搭建指引》文档（不需连飞书也能写）
 
 ## 四、需皇上拍板（技术路线决策）
-- [ ] **公网部署方式**：① 内网穿透(cpolar/ngrok，最快临时) ② GitHub Pages(需连GitHub或给token) ③ Vercel(需账号) ④ 暂不公网
+- [x] **公网部署方式 → 已选 GitHub Pages 并上线**（仓库 `wokj/gaoming-ppt-website`，URL 见上）
 - [ ] **uni-app 是否用 HBuilderX 本地编译**出真 H5 + 小程序（臣本机无 HBuilderX，只能由皇上侧编译或臣搭 CLI 工具链）
 
 ## 五、需皇上补内容（臣代劳不了，死结）
@@ -62,6 +64,15 @@
 ---
 
 ## 七、臣的建议优先级
-1. **先定公网部署路线**（唯一卡住"能发客户网址"的环节）→ 选 ① 内网穿透可今天就有临时链接
+1. ~~先定公网部署路线~~ → **已完成：GitHub Pages 已上线**，URL `https://wokj.github.io/gaoming-ppt-website/`
 2. 补真实联系方式（5 分钟，立刻让表单/复制微信可用）
 3. 同步推进飞书「评审逻辑母矿」（资产沉淀，长期复利）
+
+---
+
+## 八、如何更新官网（已上线后）
+- 改 `index.html` / `css/styles.css` / `js/script.js` 后，在 `高明之选PPT官网-大疆风` 目录执行：
+  `git add -A && git commit -m "更新说明" && git push`
+- 远程已内嵌 token（`.git/config` 内 `https://TOKEN@github.com/wokj/...`），push 免重输。
+- ⚠️ 令牌存于本机 `.git/config`；如担心，可在 GitHub 撤销该 PAT，之后 push 需重新提供。
+- GitHub Pages 每次 push 后自动重建，约 1 分钟内生效。

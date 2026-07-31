@@ -1,9 +1,9 @@
 /* 高明之选 PPT · 大疆风官网交互 */
 
-// —— 联系方式占位（皇上在此替换为真实信息）——
+// —— 联系方式（已由皇上确认）——
 const CONTACT = {
-  wechat: '请填写微信号',
-  email: '请填写邮箱'
+  wechat: 'gmzxppt',
+  email: '923498884@qq.com'
 };
 
 document.addEventListener('DOMContentLoaded', function () {
