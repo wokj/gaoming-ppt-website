@@ -1,0 +1,99 @@
+{
+  "templates": [
+    {
+      "id": "tpl_shuzhi",
+      "type": "template",
+      "title": "述职答辩 · 评审逻辑模板",
+      "desc": "把一年工作翻译成评委听得懂的结构",
+      "price": 39,
+      "originalPrice": 99,
+      "tags": ["述职", "答辩"],
+      "detail": "含封面/目录/工作综述/成果量化/问题反思/下一步规划 6 段式结构，附评审打分点标注。",
+      "cover": "images/goods/tpl_shuzhi.png",
+      "sales": 128
+    },
+    {
+      "id": "tpl_bp",
+      "type": "template",
+      "title": "商业计划书 · 投资人逻辑模板",
+      "desc": "从痛点到壁垒，一条线讲清楚",
+      "price": 59,
+      "originalPrice": 159,
+      "tags": ["商业计划", "融资"],
+      "detail": "问题-方案-市场-模式-团队-融资 标准 BP 结构，含财务预测页示例。",
+      "cover": "images/goods/tpl_bp.png",
+      "sales": 86
+    },
+    {
+      "id": "tpl_xueshu",
+      "type": "template",
+      "title": "学术答辩 · 科研逻辑模板",
+      "desc": "研究问题→方法→结论的严谨闭环",
+      "price": 45,
+      "originalPrice": 120,
+      "tags": ["学术", "答辩"],
+      "detail": "文献/方法/结果/讨论 四段式，附图表规范与答辩 FAQ。",
+      "cover": "images/goods/tpl_xueshu.png",
+      "sales": 73
+    },
+    {
+      "id": "tpl_gongzuo",
+      "type": "template",
+      "title": "工作汇报 · 周月报模板",
+      "desc": "让进度在 3 页内被看懂",
+      "price": 29,
+      "originalPrice": 69,
+      "tags": ["工作汇报"],
+      "detail": "目标-动作-结果-风险 四维周报结构。",
+      "cover": "images/goods/tpl_gongzuo.png",
+      "sales": 210
+    }
+  ],
+  "courses": [
+    {
+      "id": "course_7step",
+      "type": "course",
+      "title": "评审逻辑入门：7 步过审法",
+      "desc": "一套面向评审场景的结构化表达方法",
+      "price": 199,
+      "originalPrice": 399,
+      "tags": ["评审逻辑"],
+      "detail": "12 节视频课，从评委视角拆解 PPT 结构设计与论证方法。",
+      "cover": "images/goods/course_7step.png",
+      "sales": 54
+    },
+    {
+      "id": "course_structure",
+      "type": "course",
+      "title": "结构化表达训练营",
+      "desc": "把话说清楚，把 PPT 做对",
+      "price": 299,
+      "originalPrice": 599,
+      "tags": ["结构化表达", "答辩技巧"],
+      "detail": "21 天训练，含作业点评与模板库。",
+      "cover": "images/goods/course_structure.png",
+      "sales": 41
+    }
+  ],
+  "cases": [
+    {
+      "id": "case_gov",
+      "type": "case",
+      "title": "某央企处长述职：从 30 页砍到 12 页",
+      "desc": "保留评审打分点，删除自我感动",
+      "tags": ["述职"],
+      "detail": "原稿 30 页堆工作量，重构后 12 页直击 4 个评审维度，通过率显著提升。",
+      "cover": "images/goods/case_gov.png"
+    },
+    {
+      "id": "case_bp",
+      "type": "case",
+      "title": "创业公司 BP：3 周拿下天使轮",
+      "desc": "投资人最关心的 5 个问题前置",
+      "tags": ["商业计划", "融资"],
+      "detail": "把「为什么是你」放在第 2 页，替代冗长的行业背景。",
+      "cover": "images/goods/case_bp.png"
+    }
+  ],
+  "tags": ["全部", "述职", "答辩", "商业计划", "学术", "工作汇报", "融资"]
+}

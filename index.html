@@ -16,13 +16,15 @@
       <button class="nav__toggle" id="navToggle" aria-label="菜单">☰</button>
       <nav class="nav__links" id="navLinks">
         <a href="#home">首页</a>
+        <a href="#mall">模板</a>
+        <a href="#course">课程</a>
         <a href="#moat">核心差异</a>
-        <a href="#services">服务</a>
         <a href="#cases">案例</a>
         <a href="#method">方法论</a>
+        <a href="#agent">AI</a>
         <a href="#contact">联系</a>
       </nav>
-      <a href="#contact" class="nav__cta">立即诊断</a>
+      <a href="#mall" class="nav__cta">逛模板</a>
     </div>
   </header>
 
@@ -33,8 +35,8 @@
       <h1 class="hero__title">不是帮你做得漂亮<br>是帮你过得评审</h1>
       <p class="hero__sub">高层次人才计划 / 国家科学技术奖 / 双创计划 / 中国国际大学生创新大赛 / 职业规划大赛</p>
       <div class="hero__actions">
-        <a href="#contact" class="btn btn--primary">立即诊断</a>
-        <a href="#services" class="btn btn--ghost">浏览服务</a>
+        <a href="#mall" class="btn btn--primary">浏览模板商城</a>
+        <a href="#course" class="btn btn--ghost">查看课程</a>
       </div>
     </div>
     <div class="hero__fade"></div>
@@ -79,6 +81,37 @@
           <div class="moat-card__title">学科语境</div>
           <div class="moat-card__desc">用评委熟悉的学术 / 产业语言翻译成果价值</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 模板商城 -->
+  <section id="mall" class="section reveal">
+    <div class="container">
+      <div class="section__head section__head--row">
+        <div>
+          <span class="eyebrow">Template Mall</span>
+          <h2 class="h2">模板商城 · 瀑布流</h2>
+          <p class="sub">每套模板都内置评审打分点标注，不是好看，是好用</p>
+        </div>
+        <div class="mall-filter" id="mallFilter">
+          <button class="chip on" data-tag="全部">全部</button>
+          <button class="chip" data-tag="述职">述职</button>
+          <button class="chip" data-tag="答辩">答辩</button>
+          <button class="chip" data-tag="商业计划">商业计划</button>
+          <button class="chip" data-tag="学术">学术</button>
+          <button class="chip" data-tag="工作汇报">工作汇报</button>
+          <button class="chip" data-tag="融资">融资</button>
+        </div>
+      </div>
+      <div class="mall-grid" id="mallGrid">
+        <!-- JS 动态渲染 -->
+      </div>
+      <div class="mall-empty" id="mallEmpty" style="display:none;">
+        <p class="sub">该分类暂无模板，<a href="#contact" style="color:var(--blue);">联系定制 →</a></p>
+      </div>
+      <div style="text-align:center;margin-top:36px;">
+        <a href="#contact" class="btn btn--ghost">更多模板需求？联系定制</a>
       </div>
     </div>
   </section>
@@ -203,6 +236,20 @@
     </div>
   </section>
 
+  <!-- 课程 -->
+  <section id="course" class="section section--dark reveal">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Knowledge</span>
+        <h2 class="h2">课程 · 知识付费</h2>
+        <p class="sub">从评审视角拆解结构化表达，即买即学</p>
+      </div>
+      <div class="course-grid" id="courseGrid">
+        <!-- JS 动态渲染 -->
+      </div>
+    </div>
+  </section>
+
   <!-- 方法论 -->
   <section id="method" class="section section--dark reveal">
     <div class="container">
@@ -240,6 +287,32 @@
           </div>
           <span class="article-item__more">阅读 →</span>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI 智能体入口 -->
+  <section id="agent" class="section reveal">
+    <div class="container">
+      <div class="agent-banner">
+        <div class="agent-banner__text">
+          <span class="eyebrow">AI Agent</span>
+          <h2 class="h2" style="margin-bottom:16px;">评审逻辑智能体 · 随问随答</h2>
+          <p class="sub" style="max-width:520px;">把评审逻辑母矿装进 AI 智能体，上传你的 PPT，秒级诊断结构与逻辑漏洞。</p>
+          <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+            <button class="btn btn--primary" onclick="openAgent()">开始诊断</button>
+            <a href="#contact" class="btn btn--ghost">人工诊断</a>
+          </div>
+        </div>
+        <div class="agent-banner__visual">
+          <div class="agent-icon">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+              <circle cx="60" cy="60" r="56" stroke="#1E6FFF" stroke-width="2" stroke-dasharray="8 4" opacity="0.3"/>
+              <circle cx="60" cy="60" r="40" fill="rgba(30,111,255,0.06)"/>
+              <path d="M44 60 L54 70 L78 46" stroke="#1E6FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </section>

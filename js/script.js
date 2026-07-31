@@ -103,4 +103,123 @@ document.addEventListener('DOMContentLoaded', function () {
       form.reset();
     });
   }
+
+  // ===== 模板商城瀑布流 =====
+  let GOODS_DATA = null;
+
+  async function loadGoods() {
+    try {
+      const resp = await fetch('data/goods.json');
+      GOODS_DATA = await resp.json();
+      renderMall('全部');
+      renderCourses();
+    } catch (e) {
+      console.warn('goods.json 加载失败，商城板块为空', e);
+    }
+  }
+
+  function renderMall(tag) {
+    const grid = document.getElementById('mallGrid');
+    const empty = document.getElementById('mallEmpty');
+    if (!grid || !GOODS_DATA) return;
+    let items = GOODS_DATA.templates;
+    if (tag && tag !== '全部') {
+      items = items.filter(function (t) { return t.tags.indexOf(tag) !== -1; });
+    }
+    if (items.length === 0) {
+      grid.innerHTML = '';
+      if (empty) empty.style.display = 'block';
+      return;
+    }
+    if (empty) empty.style.display = 'none';
+    grid.innerHTML = items.map(function (t) {
+      var tagsHtml = t.tags.map(function (tg) {
+        return '<span class="tag">' + tg + '</span>';
+      }).join('');
+      var oldPrice = t.originalPrice ? '<span class="mall-card__old">¥' + t.originalPrice + '</span>' : '';
+      return '' +
+        '<div class="mall-card" onclick="buyGood(\'' + t.id + '\')">' +
+          '<img class="mall-card__cover" src="' + t.cover + '" alt="' + t.title + '" loading="lazy">' +
+          '<div class="mall-card__body">' +
+            '<div class="mall-card__tags">' + tagsHtml + '</div>' +
+            '<div class="mall-card__title">' + t.title + '</div>' +
+            '<div class="mall-card__desc">' + t.desc + '</div>' +
+            '<div class="mall-card__footer">' +
+              '<div class="mall-card__price">' +
+                '<span class="mall-card__now">¥' + t.price + '</span>' + oldPrice +
+              '</div>' +
+              '<button class="mall-card__buy" onclick="event.stopPropagation();buyGood(\'' + t.id + '\')">立即购买</button>' +
+            '</div>' +
+            '<div class="mall-card__meta">已售 ' + t.sales + ' 份</div>' +
+          '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  function renderCourses() {
+    var grid = document.getElementById('courseGrid');
+    if (!grid || !GOODS_DATA) return;
+    grid.innerHTML = GOODS_DATA.courses.map(function (c) {
+      var tagsHtml = c.tags.map(function (tg) {
+        return '<span class="tag">' + tg + '</span>';
+      }).join('');
+      var oldPrice = c.originalPrice ? '<span class="course-card__old">¥' + c.originalPrice + '</span>' : '';
+      return '' +
+        '<div class="course-card" onclick="buyGood(\'' + c.id + '\')">' +
+          '<img class="course-card__cover" src="' + c.cover + '" alt="' + c.title + '" loading="lazy">' +
+          '<div class="course-card__body">' +
+            '<div class="mall-card__tags">' + tagsHtml + '</div>' +
+            '<div class="course-card__title">' + c.title + '</div>' +
+            '<div class="course-card__desc">' + c.desc + '</div>' +
+            '<div class="course-card__footer">' +
+              '<div class="course-card__price">' +
+                '<span class="course-card__now">¥' + c.price + '</span>' + oldPrice +
+              '</div>' +
+              '<button class="course-card__buy" onclick="event.stopPropagation();buyGood(\'' + c.id + '\')">立即购买</button>' +
+            '</div>' +
+            '<div class="course-card__meta">已购 ' + c.sales + ' 人</div>' +
+          '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  // 标签筛选
+  var filterWrap = document.getElementById('mallFilter');
+  if (filterWrap) {
+    filterWrap.querySelectorAll('.chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        filterWrap.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+        chip.classList.add('on');
+        renderMall(chip.getAttribute('data-tag'));
+      });
+    });
+  }
+
+  // 启动数据加载
+  loadGoods();
 });
+
+// ===== 购买/智能体全局函数（onclick 内联调用） =====
+
+function buyGood(id) {
+  // 联动逻辑：引导跳小程序购买
+  showToastGlobal('长按识别小程序码，在「高明之选PPT」小程序内完成购买');
+  // 可选：尝试唤起微信小程序（需在小程序后台配置）
+  // window.location.href = 'weixin://dl/business/?...';
+  console.log('buy good:', id);
+}
+
+function openAgent() {
+  showToastGlobal('AI 诊断功能即将上线，请关注小程序「高明之选PPT」');
+}
+
+function showToastGlobal(msg) {
+  var toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add('toast--show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(function () {
+    toast.classList.remove('toast--show');
+  }, 3000);
+}
