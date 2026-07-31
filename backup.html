@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>高明之选PPT 项目资产全景备份</title><style>body{font-family:-apple-system,sans-serif;max-width:900px;margin:40px auto;padding:0 20px;line-height:1.7;color:#0E1B33}pre{white-space:pre-wrap;word-wrap:break-word;font-size:14px}</style></head><body><pre># 高明之选 PPT · 项目资产全景备份
+
+&gt; 备份生成时间：2026-07-31 23:10
+&gt; 备份目的：项目资产盘点与跨平台存档（拟同步至 ima 知识库）
+&gt; 项目定位：一人公司「高明之选 PPT」——评审逻辑顾问，模板商城 + 课程 + 智能体门面
+
+---
+
+## 一、项目总览
+
+| 项 | 内容 |
+|---|---|
+| 品牌 | 高明之选 PPT |
+| 定位 | 评审逻辑顾问（不是美化，是过审） |
+| 核心场景 | 高层次人才计划 / 国家科技奖 / 双创 / 国创赛 / 职规赛 等 9 大场景 |
+| 商业模式 | 模板虚拟商品（网盘发货）+ 知识付费课程 + 定制服务 |
+| OPC 阶段 | 01–08 已完成（资源盘点→定位→价值主张→商业模式→MVP→转化闭环→资产沉淀），09 经营复盘待触发 |
+| 主体 | 企业/个体户（可开通微信支付） |
+| 品牌色 | 蓝白科技风：主蓝 `#1E6FFF` / 深蓝文字 `#0E1B33` / 纯白 `#FFFFFF` / 浅蓝灰 `#F4F8FD` |
+
+---
+
+## 二、资产清单（6 大工程 + 记忆）
+
+### 1. 官网（已升级为对标级商城形态）✅ 已上线
+- **路径**：`C:\Users\高明之选\Documents\高明之选PPT官网-大疆风\`
+- **线上地址**：https://wokj.github.io/gaoming-ppt-website/
+- **技术**：纯静态 HTML + CSS + JS（GitHub Pages 自动构建）
+- **当前内容**：
+  - 模板商城瀑布流（4 模板 + 标签筛选 + 价格 + 购买按钮）
+  - 课程板块（2 课程 + 购买按钮）
+  - AI 智能体诊断入口横幅
+  - 原保留：核心差异 / 九大场景 / 脱敏案例 / 方法论文章 / 关系引荐表单
+- **数据来源**：`data/goods.json`（4 模板 + 2 课程 + 2 案例，与小程序云数据库同源）
+- **图片**：`images/goods/` 8 张蓝白 AI 占位图
+- **推送脚本**：`push_to_github.py`（沙箱 git push 不通时，用 GitHub Git Database API 批量上传）
+
+### 2. 全栈商城（uni-app + 微信云开发）✅ 后端已部署
+- **路径**：`C:\Users\高明之选\Documents\高明之选PPT商城\`
+- **技术**：uni-app（Vue2）+ 微信云开发（云函数 + 云数据库 + 静态托管）
+- **前端页面**（8 页）：首页 / 模板瀑布流 / 课程 / 案例 / 智能体(web-view) / 我的 / 关系引荐 / 商品详情
+- **云函数**（10 个，已上传）：`initDB` `getGoods` `getDetail` `createOrder` `payNotify` `getOrder` `getOrders` `submitLead` `getAgentUrl` `getOpenid`
+- **云环境**：`cloud1-d1gwnk2858af58489`（已开通）
+- **数据库**：`goods` 集合已写入 8 条示例数据
+- **智能体 H5 占位**：`agent-h5/index.html`
+- **部署文档**：`README.md` `DEPLOY.md`
+- **同步脚本**：`sync_cloudfuncs.py`（HBuilderX 重编译后会清掉 cloudfunctionRoot，此脚本恢复配置）
+
+### 3. 原生小程序（蓝白展示版）✅ 二开完成
+- **路径**：`C:\Users\高明之选\Documents\高明之选PPT官网\miniprogram\`
+- **技术**：微信原生小程序（weapp-ssha 底座二开）
+- **状态**：蓝白配色已改、联系方式已填、AppID 已配置、JSON/JS 校验全绿
+- **用途**：初期展示门面，后被 uni-app 商城工程取代（保留备查）
+
+### 4. uni-app 协同项目（xenice/ow 底座）⏸ 停用
+- **路径**：`C:\Users\高明之选\Documents\高明之选PPT官网-小程序协同\`
+- **技术**：uni-app + 飞书多维表后端
+- **状态**：作为技术参考保留，未被采用（改选更轻的微信云开发方案）
+
+### 5. OPC 战略文档 ✅
+- **路径**：`C:\Users\高明之选\opc-doc\gaoming-ppt\`
+- **内容**：`inputs/` `outputs/` `reviews/` `state/`（含 current-stage.json / decisions.json / assumptions.json）
+
+### 6. 工作记忆 ✅
+- **路径**：`D:\Program Files\workbudddy\高明之选PPT全案设计\.workbuddy\memory\`
+- **文件**：`2026-07-30.md`（李白 PPT 等历史）、`2026-07-31.md`（今日全量工作日志）
+
+---
+
+## 三、关键配置（公开业务信息）
+
+| 配置项 | 值 |
+|---|---|
+| 微信小程序 AppID | `wx9ddbb5cb14b075f6` |
+| 微信云开发环境 ID | `cloud1-d1gwnk2858af58489` |
+| 公开联系方式 | 微信 `gmzxppt` / 邮箱 `923498884@qq.com` |
+| 官网域名 | https://wokj.github.io/gaoming-ppt-website/ |
+| GitHub 仓库 | wokj/gaoming-ppt-website（main 分支，PAT 已配置本地 remote） |
+
+&gt; ⚠️ 敏感凭证（GitHub PAT、微信支付商户号 mchid、APIv3 密钥、网盘分享根地址）**不写入知识库**，仅存于本地工程配置文件与用户侧。
+
+---
+
+## 四、关键技术决策
+
+1. **底座选型**：选 uni-app + 微信云开发（一套代码出小程序 + H5，免服务器），弃用原生小程序壳与 xenice/ow 协同项目。
+2. **iOS 虚拟支付规避**：iOS 端引导跳同域 H5 商城（uni-app 编译的 H5，部署云开发静态托管）完成购买，规避苹果 IAP 限制。
+3. **虚拟发货**：支付回调自动把网盘链接或授权码写入订单与「我的」。
+4. **官网联动方案**：在现有官网 HTML 直接嵌入商城能力（fetch 本地 goods.json 渲染瀑布流），而非替换为 uni-app H5，保留 PC 端布局与 SEO；与小程序共享同一套数据结构。
+5. **智能体入口**：web-view 嵌入部署在云开发托管的腾讯系 H5 智能体（业务域名用 .tcloudbase.com 备案域名解决）。
+
+---
+
+## 五、待推进工作（按优先级）
+
+### 高优先（交易闭环）
+- [ ] **微信支付真交易**：开通商户号 → 云开发控制台绑定 → 跑 `createOrder → requestPayment → payNotify` 虚拟发货
+- [ ] **H5 支付分支**：官网/iOS 端购买走 H5 支付（cloudPay 预留 payUrl，按云开发 H5 支付文档补全）
+- [ ] **小程序上传审核**：编译 mp-weixin → 上传体验版 → 提交审核
+
+### 中优先（联动增强）
+- [ ] **官网实时数据同步**：接入 CloudBase JS SDK 匿名登录调云函数，替换静态 goods.json（与小程序完全实时一致）
+- [ ] **官网购买跳转小程序**：生成小程序码放到官网，点击「立即购买」直接唤起小程序对应商品
+- [ ] **关系引荐表单接飞书多维表 Webhook**：线索真正收口（目前官网表单为本地 Mock）
+
+### 低优先（内容填充）
+- [ ] **真实素材替换**：AI 占位图 → 真实模板缩略图/课程封面/案例图
+- [ ] **智能体真实对话**：替换 agent-h5/index.html 占位页，接入真实 AI 后端
+- [ ] **阶段 08 飞书知识库「评审逻辑母矿」**：需用户口述实战沉淀
+- [ ] **商城工程多余目录清理**：`高明之选/` `高明之选PPT/`（21:20 误入商城根目录的残留）
+
+---
+
+## 六、部署操作记录（供复现）
+
+### 官网推送（GitHub Pages）
+- 沙箱 `git push` 不通（github.com:443 连不上）
+- 改用 `push_to_github.py`（GitHub Git Database API：blob→tree→commit→ref）
+- 最新 commit：`d187e9ed`（2026-07-31 官网升级为商城形态）
+
+### 云函数上传（微信开发者工具）
+1. HBuilderX 打开商城工程 → 运行到微信开发者工具
+2. 双击 `sync_cloudfuncs.py` 恢复 cloudfunctionRoot
+3. 右键 `cloudfunctions` 单函数 → 上传并部署：云端安装依赖
+4. 云开发控制台运行 `initDB`（清空重灌 8 条带图数据）
+
+---
+
+*本备份文档由 WorkBuddy 生成，拟同步至 ima 知识库。敏感凭证不入库。*
+</pre></body></html>
