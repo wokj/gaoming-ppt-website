@@ -38,5 +38,23 @@ blockquote { border-left: 4px solid #1E6FFF; margin: 12px 0; padding: 6px 14px; 
 <li>遗留：40 条 URL 已就绪，待 ima 连接器恢复后直接复用 <code>_ima_sync_urls.json</code> 分批导入即可（import_urls 幂等，同 URL 复用 media_id 重抓解析）</li>
 </ul>
 <p><strong>下一步建议</strong>：在 WorkBuddy 连接器管理中连接「ima 知识库」，或在自动化配置中为其指定 connectorIds 后重跑本任务；重跑时先抽查 GitHub Pages 已构建完成（避免 404），再分批 import_urls（每批 ≤10）。</p>
+<hr />
+<h2>2026-08-04 21:12（自动化：每日 09:15 资产库自动同步）</h2>
+<p><strong>同步脚本</strong>：<code>sync_asset_lib_to_ima.py</code>（托管 venv）执行成功 ✅</p>
+<ul>
+<li>扫描资产库 md：42 个（已排除 <code>.workbuddy</code> 内部目录）</li>
+<li>转换 HTML：42 个 → GitHub Pages 推送成功（commit <code>941109893beb0d6700667ad63bc0431d47259196</code>）</li>
+<li>URL 清单：42 条，已写 <code>C:/Users/高明之选/Documents/_ima_sync_urls.json</code></li>
+<li>相对上次（08-03，commit f44c2ab）增量：<strong>新增 2 个、变更 0 个</strong>（GitHub compare API 核验）</li>
+<li><code>00_数字资产系统/中枢与工具/ima同步日志.html</code>（本日志自身，上次运行时尚未创建）</li>
+<li><code>02_流量系统/运营流水线/周报/2026-第32周-运营周报.html</code>（08-03 09:20 生成的周报，上次 09:05 运行时尚不存在）</li>
+<li>抽查验证：<code>2026-第32周-运营周报.html</code> 已可公网访问、内容正确，GitHub Pages 构建无 404 ✅</li>
+</ul>
+<p><strong>ima 导入</strong>：❌ 未执行（连续第 2 次）</p>
+<ul>
+<li>原因：ima MCP 连接器仍为 <strong>disconnected</strong>，<code>import_urls</code> / <code>get_knowledge_list</code> 工具未注册（ToolSearch 验证），非脚本/网络错误</li>
+<li>遗留：42 条 URL 已就绪，待连接器恢复后复用 <code>_ima_sync_urls.json</code> 分批导入（≤10/批，幂等可重导）</li>
+</ul>
+<p><strong>累计待导入</strong>：42 条 URL（08-03 的 40 条 + 08-04 新增 2 条，URL 清单已含全部）。建议：在连接器管理连接 ima 知识库，或给本自动化配置 connectorIds，恢复后重跑即可完成导入 + 抽查。</p>
 </body>
 </html>
