@@ -150,5 +150,23 @@ blockquote { border-left: 4px solid #1E6FFF; margin: 12px 0; padding: 6px 14px; 
 <li>遗留：59 条 URL 已就绪，连接器一恢复即可直接复用 <code>_ima_sync_urls.json</code> 分批导入（≤10/批，幂等可重导）</li>
 </ul>
 <p><strong>累计待导入</strong>：59 条 URL。⚠️ 已连续 7 日空跑导入环节，知识库实际从未更新过。请务必在连接器管理页连接「ima 知识库」，或给本自动化配置 connectorIds 后重跑；否则每日仅完成推送、ima 侧持续无新增。</p>
+<hr />
+<h2>2026-08-12 11:56（自动化：每日 09:15 资产库自动同步，本次 12 点前补跑）</h2>
+<p><strong>同步脚本</strong>：<code>sync_asset_lib_to_ima.py</code>（托管 venv）执行成功 ✅</p>
+<ul>
+<li>扫描资产库 md：59 个（已排除 <code>.workbuddy</code> 内部目录，无遗漏）</li>
+<li>转换 HTML：59 个 → GitHub Pages 推送成功（commit <code>64608c23</code>）</li>
+<li>URL 清单：59 条，已写 <code>C:/Users/高明之选/Documents/_ima_sync_urls.json</code></li>
+<li>增量核验（GitHub compare API，HEAD <code>64608c23</code> 与 parent <code>0cc8f50</code> 一致、无夹带手动推送）：<strong>新增 0、变更 1</strong></li>
+<li>变更：<code>00_数字资产系统/中枢与工具/ima同步日志.html</code>（本日志自身，仅此一项）</li>
+<li>说明：08-12 当日尚无新 md（日报目录仍止于 <code>2026-08-11-运营日报.md</code>），本次为幂等重推</li>
+<li>抽查验证：GitHub Pages 构建已完成，<code>GET /pages/builds/latest</code> 状态 <strong><code>built</code></strong>（updated 04:00:00Z，无 error，commit 对应本次推送 64608c23）✅，无 404 风险</li>
+</ul>
+<p><strong>ima 导入</strong>：❌ 未执行（连续第 8 次）</p>
+<ul>
+<li>原因：ima MCP 连接器仍为 <strong>disconnected</strong>（connector-status 确认）；DeferExecuteTool 调用 <code>mcp__ima-mcp__import_urls</code> 报 <code>Tool not found in the deferred tools index</code>（已实际调用留证），ToolSearch 精确名与关键词均检索不到 <code>import_urls</code>/<code>get_knowledge_list</code>，非脚本/网络错误</li>
+<li>遗留：59 条 URL 已就绪，Pages 已构建完成，连接器一恢复即可直接复用 <code>_ima_sync_urls.json</code> 分批导入（≤10/批，幂等可重导）</li>
+</ul>
+<p><strong>累计待导入</strong>：59 条 URL。⚠️ 已连续 8 日空跑导入环节，知识库实际从未更新过。请务必在连接器管理页连接「ima 知识库」，或给本自动化配置 connectorIds 后重跑；否则每日仅完成推送、ima 侧持续无新增。</p>
 </body>
 </html>
