@@ -335,5 +335,24 @@ blockquote { border-left: 4px solid #1E6FFF; margin: 12px 0; padding: 6px 14px; 
 <blockquote>
 <p>补充：写完本条目后已重跑一次脚本，把含本条记录的日志页一并推送（commit <code>f747ebb6f774</code>），Pages 构建 <code>built</code>、全量 71 条 URL 复测仍 <strong>200 / bad=0</strong>。故当前线上 HTML 与本地资产库完全一致，连接器恢复后可直接导入。</p>
 </blockquote>
+<hr />
+<h2>2026-09-15 09:22（自动化：每日 09:15 资产库自动同步）</h2>
+<p><strong>同步脚本</strong>：<code>sync_asset_lib_to_ima.py</code>（托管 venv）执行成功 ✅</p>
+<ul>
+<li>扫描资产库 md：<strong>74 个</strong>（已排除 <code>.workbuddy</code> 内部目录，无遗漏；较上次 71 个净增 3 个）</li>
+<li>转换 HTML：74 个 → GitHub Pages 推送成功（commit <code>ade05f9d1582</code>，推送时间 01:23:49Z）</li>
+<li>URL 清单：74 条，已写 <code>C:/Users/高明之选/Documents/_ima_sync_urls.json</code></li>
+<li>增量核验（GitHub compare API，<code>f747ebb6f774</code> → <code>ade05f9d1582</code>，removed=0、无夹带手动推送）：<strong>新增 3、变更 1</strong></li>
+<li>新增：<code>02_流量系统/运营流水线/周报/2026-第38周-运营周报.html</code>（16362B，09-14 18:17 落盘，上次 18:10 运行之后）、<code>02_流量系统/运营流水线/日报/2026-09-15-运营日报.html</code>（21039B，09-15 09:07 落盘，本次运行前几分钟）、<code>04_作品集网站/README.html</code>（4422B，09-14 19:20 落盘）</li>
+<li>变更：<code>00_数字资产系统/中枢与工具/ima同步日志.html</code>（本日志自身，每次必然变更）</li>
+<li>说明：本次真实业务增量为 <strong>3 篇</strong>，是近期最多的一次（前 3 次均为 1 篇）</li>
+<li>抽查验证：GitHub Pages 构建 <strong><code>built</code></strong>（commit <code>ade05f9d1582</code> 匹配本次推送，error 为 null）✅；<strong>全量 74 条 URL HTTP 实测均返回 200，bad=0，无 404</strong> ✅（校验时构建刚完成，首轮即全绿，无需重导）</li>
+</ul>
+<p><strong>ima 导入</strong>：❌ 未执行（连续第 18 次）</p>
+<ul>
+<li>原因：ima MCP 连接器仍为 <strong>disconnected</strong>（connector-status 仅 agent-mail 为 connected）。多路核验：① ToolSearch 精确名 <code>import_urls</code>/<code>get_knowledge_list</code> 无结果；② ToolSearch 关键词（ima 知识库 import_urls 导入 / get_knowledge_list media_state / ima knowledge base import）返回候选全为 ImageGen、agent-mail、genie-baas、sites、marketplace 等无关工具，无 ima 条目；③ DeferExecuteTool 实际调用 <code>import_urls</code>（knowledge_base_id=7473045069386421、folder_id=""、1 条测试 URL）报 <code>Tool "import_urls" is not available in the current environment or configuration</code>（已实际调用留证）。非脚本/网络错误，脚本与推送均成功</li>
+<li>遗留：74 条 URL 已就绪、Pages 已构建完成，连接器一恢复即可直接复用 <code>_ima_sync_urls.json</code> 分批导入（≤10/批，共 8 批，幂等可重导），<strong>无需再跑脚本</strong></li>
+</ul>
+<p><strong>累计待导入</strong>：74 条 URL。⚠️ 已连续 18 日空跑导入环节（08-03 起），知识库实际从未更新过。请务必在连接器管理页连接「ima 知识库」，或给本自动化配置 connectorIds 后重跑；否则每日仅完成推送、ima 侧持续无新增。</p>
 </body>
 </html>
