@@ -391,5 +391,8 @@ blockquote { border-left: 4px solid #1E6FFF; margin: 12px 0; padding: 6px 14px; 
 <li>遗留：76 条 URL 已就绪、Pages 已构建完成，连接器一恢复即可直接复用 <code>_ima_sync_urls.json</code> 分批导入（≤10/批，共 8 批，幂等可重导），<strong>无需再跑脚本</strong></li>
 </ul>
 <p><strong>累计待导入</strong>：76 条 URL。⚠️ 已连续 20 日空跑导入环节（08-03 起），知识库实际从未更新过。请务必在连接器管理页连接「ima 知识库」，或给本自动化配置 connectorIds 后重跑；否则每日仅完成推送、ima 侧持续无新增。</p>
+<blockquote>
+<p>补充：日志写完后已再跑一次脚本，把本日志页同步上线，最终 HEAD 为 <code>da2cd3c16774</code>（02:00Z），Pages <code>built</code>、error 为 null，全量 76 条 URL 复测仍 200 / bad=0。线上 HTML 与本地已完全一致。</p>
+</blockquote>
 </body>
 </html>
