@@ -456,6 +456,8 @@ blockquote { border-left: 4px solid #1E6FFF; margin: 12px 0; padding: 6px 14px; 
 <p><strong>累计待导入</strong>：79 条 URL。⚠️ 已连续 23 日空跑导入环节（08-03 起），知识库实际从未更新过。请务必在连接器管理页连接「ima 知识库」，或给本自动化配置 connectorIds 后重跑；否则每日仅完成推送、ima 侧持续无新增。</p>
 <blockquote>
 <p>说明：本次自动化实际触发时间为 19:18（非既定 09:15 档），推送 19:20 完成，链路一切正常。</p>
+<p>补充：日志写完后已再跑一次脚本，把本日志页同步上线，最终 HEAD 为 <code>dc05e4106f92</code>，Pages <code>built</code>、error 为 null，全量 79 条 URL 复测仍 200 / bad=0。线上 HTML 与本地已完全一致。</p>
+<p>补充：本自动化配置（<code>automation-1785661244492</code>）当前仅有 <code>cwds</code>，无 <code>connectorIds</code> 字段，且 automation_update 工具的 schema 未开放该字段，故<strong>无法由 AI 侧自动补挂 ima 连接器</strong>，需皇上在连接器管理页手动连接。</p>
 </blockquote>
 </body>
 </html>
