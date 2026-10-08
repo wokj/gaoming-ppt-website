@@ -544,5 +544,34 @@ blockquote { border-left: 4px solid #1E6FFF; margin: 12px 0; padding: 6px 14px; 
 <blockquote>
 <p>说明：本次自动化实际触发时间为 13:23（非既定 09:15 档），链路一切正常。</p>
 </blockquote>
+<hr />
+<h2>2026-10-08 07:56（自动化：每日 09:15 资产库自动同步）</h2>
+<p><strong>同步脚本</strong>：<code>sync_asset_lib_to_ima.py</code>（托管 venv）执行成功 ✅</p>
+<ul>
+<li>扫描资产库 md：<strong>86 个</strong>（已排除 <code>.workbuddy</code> 内部目录）→ HTML 全量转换并推送成功（commit <code>a660d75d8df2b886ae12dd443416fb7c9982d350</code>）</li>
+<li>URL 清单：<strong>86 条</strong>，已写 <code>C:/Users/高明之选/Documents/_ima_sync_urls.json</code></li>
+</ul>
+<p><strong>本次增量</strong>（GitHub compare API：<code>2fcdfe4f9045...a660d75d8df2</code>，即 HEAD 与 parent）</p>
+<ul>
+<li>新增：<strong>2 篇</strong></li>
+<li><code>02_流量系统/运营流水线/日报/2026-10-08-运营日报.html</code></li>
+<li><code>02_流量系统/运营流水线/周报/2026-第40周-运营周报.html</code></li>
+<li>变更：<strong>1 个</strong>（<code>00_数字资产系统/中枢与工具/ima同步日志.html</code> —— 本日志自身，非业务增量）</li>
+<li>真实业务增量：<strong>+2 篇</strong>；日报/周报流水线在 09-28 至 10-07 期间断更，10-08 恢复产出</li>
+</ul>
+<p><strong>公网校验</strong>：</p>
+<ul>
+<li>首查 Pages 状态为 <code>building</code>（commit <code>a660d75d8df2</code> 匹配、error 为 null），此时全量校验有 1 条 404（<code>2026-第40周-运营周报.html</code>，属构建中途抓取）</li>
+<li>待构建完成后复查 <strong><code>built</code></strong>（commit 一致、error 为 null）✅；<strong>全量 86 条 URL HTTP 实测均返回 200，bad=0，无 404</strong> ✅（无需重导，构建延迟自愈）</li>
+</ul>
+<p><strong>ima 导入</strong>：❌ 未执行（连续第 28 次）</p>
+<ul>
+<li>原因：ima MCP 连接器仍为 <strong>disconnected / disabled</strong>。核验过程：① 会话 connector-status 仅有 agent-mail 为 connected；② ToolSearch 精确名 <code>import_urls</code> / <code>get_knowledge_list</code> 及关键词检索均无 ima 工具条目（返回的都是 sheetagent / agent-mail / sites 等无关工具）；③ DeferExecuteTool 以多种工具名下实际调用（<code>import_urls</code>、<code>mcp__ima-mcp__import_urls</code> 等，参数 knowledge_base_id=7473045069386421、folder_id=""），均报 <code>Tool ... is not available in the current environment or configuration</code>（已实际调用留痕）；④ 本机连接器配置文件确认 <code>connector:ima-mcp</code>（url <code>https://ima.qq.com/mcp</code>）存在但 <code>"disabled": true</code>，且连接器状态中 <code>everConnected</code> 不含 ima。非脚本/网络错误，脚本与推送均成功</li>
+<li>遗留：86 条 URL 已就绪、Pages 已构建完成，连接器一恢复即可直接复用 <code>_ima_sync_urls.json</code> 分批导入（≤10/批，共 9 批，幂等可重导），<strong>无需再跑脚本</strong></li>
+</ul>
+<p><strong>累计待导入</strong>：86 条 URL。⏳ 已连续 28 日空跑导入环节（08-03 起），知识库实际从未更新过。请务必在 WorkBuddy <strong>连接器管理页手动连接「ima 知识库」</strong>（AI 侧无法代挂：<code>automation_update</code> 工具 schema 无 connectorIds 字段，已多次验证）；否则每日仅完成推送，ima 侧持续无新增。</p>
+<blockquote>
+<p>说明：本次自动化实际触发时间为 07:56（非既定 09:15 档），链路一切正常。敏感凭证（GitHub token）未写入任何输出文档。</p>
+</blockquote>
 </body>
 </html>
