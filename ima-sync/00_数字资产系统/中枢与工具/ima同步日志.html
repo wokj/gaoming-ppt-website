@@ -631,7 +631,7 @@ blockquote { border-left: 4px solid #1E6FFF; margin: 12px 0; padding: 6px 14px; 
 </ul>
 <p><strong>累计待导入</strong>：87 条 URL。⏳ 已连续 30 日空跑导入环节（08-03 起），ima 知识库「高明之选PPT」实际从未被本自动化更新过。请务必在 WorkBuddy <strong>连接器管理页手动连接「ima 知识库」</strong>（AI 侧无法代挂：<code>automation_update</code> 工具 schema 无 connectorIds 字段，已多次验证）；否则每日仅完成公网推送，ima 侧持续无新增。</p>
 <blockquote>
-<p>说明：本次自动化触发时间 11:17（偏离既定 09:15 档）。日志写入后按既定流程再推一次（commit <code>698c35ca7ba56389468d0fcf310b2764013b7d70</code>）使本日志页同步上线，复校 Pages <code>built</code>、全量 87 条仍 bad=0。终态 HEAD 为 <code>f706c48f9d49</code>（日志补充说明后第三、四次推送），Pages 已 <code>built</code>、87 条 URL 全部 200。敏感凭证（GitHub token）未写入任何输出文档。</p>
+<p>说明：本次自动化触发时间 11:17（偏离既定 09:15 档）。写入本日志后再次推送使其上线，末次校验：Pages <code>built</code>、<strong>全量 87 条 URL 全部 HTTP 200、bad=0</strong>。终态 HEAD 以 GitHub 仓库 main 分支当前值为准（不再于日志内逐一登记，避免"改一行 → 又得重推"的循环）。敏感凭证（GitHub token）未写入任何输出文档。</p>
 </blockquote>
 </body>
 </html>
