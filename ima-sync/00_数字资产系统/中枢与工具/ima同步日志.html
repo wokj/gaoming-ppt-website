@@ -724,5 +724,113 @@ blockquote { border-left: 4px solid #1E6FFF; margin: 12px 0; padding: 6px 14px; 
 <blockquote>
 <p>说明：本次自动化触发时间 09:13，回归既定 09:15 档。敏感凭证（GitHub token）未写入任何输出文档。</p>
 </blockquote>
+<hr />
+<h2>2026-10-17 09:52 增量同步</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>扫描 md 数</td>
+<td>91</td>
+</tr>
+<tr>
+<td>本次新增</td>
+<td>1（）</td>
+</tr>
+<tr>
+<td>本次变更</td>
+<td>1（ 页自身，非业务增量）</td>
+</tr>
+<tr>
+<td>本次删除</td>
+<td>0</td>
+</tr>
+<tr>
+<td>推送 commit</td>
+<td>（本次仅推 1 次）</td>
+</tr>
+<tr>
+<td>Pages 构建</td>
+<td>→ 约 25 秒后 ，commit 匹配、error 为空</td>
+</tr>
+<tr>
+<td>URL 清单</td>
+<td>91 条（）</td>
+</tr>
+<tr>
+<td>HTTP 实测</td>
+<td>91 条全部 200，bad=0，未出现 404</td>
+</tr>
+<tr>
+<td>ima 导入</td>
+<td>❌ 未执行（第 34 次空跑）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>失败项</strong>：ima 知识库导入环节无法执行。 仍返回「No connectors installed」； 检索  /  均无结果； 中  仍为 （该连接器从未连接过）。故本次仅完成「md → HTML → GitHub Pages」公网推送，ima 侧未新增任何条目。</p>
+<p><strong>待办</strong>：待连接器恢复后，直接分批 （、、≤10 条/批，<strong>91 条共 10 批</strong>，幂等可重导），无需重跑脚本。</p>
+<p><strong>累计待导入</strong>：91 条 URL。⏳ 已连续 34 次空跑导入环节（08-03 起），ima 知识库「高明之选PPT」实际从未被本自动化更新过。请务必在 WorkBuddy <strong>连接器管理页手动连接「ima 知识库」</strong>（AI 侧无法代挂： schema 无 connectorIds 字段）。</p>
+<blockquote>
+<p>说明：本次自动化触发时间 09:52，晚于既定 09:15 档。敏感凭证（GitHub token）未写入任何输出文档。</p>
+</blockquote>
+<hr />
+<h2>2026-10-17 09:52 增量同步</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>扫描 md 数</td>
+<td>91</td>
+</tr>
+<tr>
+<td>本次新增</td>
+<td>1（02_流量系统/运营流水线/日报/2026-10-14-运营日报）</td>
+</tr>
+<tr>
+<td>本次变更</td>
+<td>1（ima同步日志 页自身，非业务增量）</td>
+</tr>
+<tr>
+<td>本次删除</td>
+<td>0</td>
+</tr>
+<tr>
+<td>推送 commit</td>
+<td>e7204f581222（本次仅推 1 次）</td>
+</tr>
+<tr>
+<td>Pages 构建</td>
+<td>building → 约 25 秒后 built，commit 匹配、error 为空</td>
+</tr>
+<tr>
+<td>URL 清单</td>
+<td>91 条（C:/Users/高明之选/Documents/_ima_sync_urls.json）</td>
+</tr>
+<tr>
+<td>HTTP 实测</td>
+<td>91 条全部 200，bad=0，未出现 404</td>
+</tr>
+<tr>
+<td>ima 导入</td>
+<td>失败——未执行（第 34 次空跑）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>失败项</strong>：ima 知识库导入环节无法执行。list_installed_plugins 仍返回「No connectors installed」；ToolSearch 检索 import_urls / get_knowledge_list 均无结果；mcp.json 中 connector:ima-mcp 仍为 disabled=true（该连接器从未连接过）。故本次仅完成「md → HTML → GitHub Pages」公网推送，ima 侧未新增任何条目。</p>
+<p><strong>待办</strong>：待连接器恢复后，直接分批 import_urls（knowledge_base_id=7473045069386421、folder_id=""、≤10 条/批，91 条共 10 批，幂等可重导），无需重跑脚本。</p>
+<p><strong>累计待导入</strong>：91 条 URL。已连续 34 次空跑导入环节（08-03 起），ima 知识库「高明之选PPT」实际从未被本自动化更新过。请务必在 WorkBuddy 连接器管理页手动连接「ima 知识库」（AI 侧无法代挂：automation_update schema 无 connectorIds 字段）。</p>
+<blockquote>
+<p>说明：本次自动化触发时间 09:52，晚于既定 09:15 档。敏感凭证（GitHub token）未写入任何输出文档。</p>
+</blockquote>
 </body>
 </html>
