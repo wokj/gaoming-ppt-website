@@ -888,5 +888,73 @@ blockquote { border-left: 4px solid #1E6FFF; margin: 12px 0; padding: 6px 14px; 
 <blockquote>
 <p>说明：本次自动化触发时间 15:06，晚于既定 09:15 档。敏感凭证（GitHub token）未写入任何输出文档。</p>
 </blockquote>
+<hr />
+<h2>2026-10-19 11:15 增量同步（第 36 次执行）</h2>
+<p><strong>本轮结果：推送成功，ima 导入未执行（连接器仍禁用）</strong></p>
+<h3>一、推送侧（已完成）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>触发时间</td>
+<td>2026-10-19 11:09（既定 09:15 档之后）</td>
+</tr>
+<tr>
+<td>上次终态 HEAD</td>
+<td><code>cc08cae40873</code>（2026-10-18 07:16Z）</td>
+</tr>
+<tr>
+<td>本次 HEAD</td>
+<td><code>e573741ab82f</code>（2026-10-19 03:13Z）</td>
+</tr>
+<tr>
+<td>扫描 md 数</td>
+<td>93</td>
+</tr>
+<tr>
+<td>ima-sync 目录 HTML</td>
+<td>95</td>
+</tr>
+<tr>
+<td>URL 清单</td>
+<td><code>_ima_sync_urls.json</code> 共 93 条</td>
+</tr>
+<tr>
+<td>Pages 状态</td>
+<td><code>built</code>，error=null，commit 匹配 <code>e573741ab82f</code></td>
+</tr>
+<tr>
+<td>全量 HTTP 校验</td>
+<td>93 条全部 200，bad=0</td>
+</tr>
+<tr>
+<td>推送次数</td>
+<td>1 次（脚本单次完成，未因写日志重推）</td>
+</tr>
+</tbody>
+</table>
+<h3>二、增量明细（Git Trees API 逐 blob 比对，已过滤目录 tree 条目）</h3>
+<p><strong>新增 1 篇：</strong>
+- <code>02_流量系统/运营流水线/日报/2026-10-19-运营日报.md</code> → <code>.../日报/2026-10-19-运营日报.html</code></p>
+<p><strong>变更：0</strong>（<code>ima同步日志.html</code> 本轮推送时尚未改写，故未计入变更）</p>
+<p>日报流水线 10-18、10-19 连续两日正常产出，10-15/10-16/10-17 曾缺稿。</p>
+<h3>三、ima 导入侧（失败，第 36 次空跑）</h3>
+<ul>
+<li><code>list_installed_plugins</code> → 「No connectors installed」（两次调用结果一致）</li>
+<li><code>ToolSearch</code> 精确名 <code>mcp__ima-mcp__import_urls</code> / <code>mcp__ima-mcp__get_knowledge_list</code> → 无结果</li>
+<li><code>DeferExecuteTool</code> 实际调用 → <code>Tool "mcp__ima-mcp__import_urls" not found in the deferred tools index</code>；<code>get_knowledge_list</code> 同</li>
+<li>配置复核：<code>~/.workbuddy/connectors/default/mcp.json</code>（mcpServers 共 56 项）中 <code>connector:ima-mcp</code> 仍为 <code>"disabled": true</code>，url <code>https://ima.qq.com/mcp</code></li>
+</ul>
+<p><strong>结论不变</strong>：ima 从未完成过连接器授权，属"从未连接"而非"临时掉线"。人工在 WorkBuddy 连接器管理页连接「ima 知识库」是唯一解，无命令行/配置捷径。连接器恢复后可直接复用 <code>_ima_sync_urls.json</code> 分批 <code>import_urls</code>（≤10 条/批，本轮 93 条共 10 批），无需重跑脚本。</p>
+<h3>四、环境备注</h3>
+<ul>
+<li>本轮推送<strong>未出现</strong> 10-18 记录的 <code>WinError 10060</code> 超时，脚本一次跑通（耗时 1 分 36 秒）。</li>
+<li>校验脚本 <code>C:/Users/高明之选/Documents/_verify_sync.py</code> 复用正常，两轮均输出 <code>bad=0</code>。</li>
+</ul>
 </body>
 </html>
